@@ -56,12 +56,32 @@ class LoginViewController: UIViewController {
         
         return textField
     }()
+    
+    private let loginButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Login", for: .normal)
+        button.backgroundColor = .purple
+        
+        return button
+    }()
+    
+    private let signUpButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Sign Up", for: .normal)
+        button.setTitleColor(.purple, for: .normal)
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupNavigationBar()
         setupUI()
+        addTouchUpInside(to: loginButton)
+        addTouchUpInside(to: signUpButton)
     }
     
     private func setupNavigationBar() {
@@ -73,6 +93,8 @@ class LoginViewController: UIViewController {
         stackView.addArrangedSubview(nameTextField)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
+        stackView.addArrangedSubview(loginButton)
+        view.addSubview(signUpButton)
 
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
@@ -86,5 +108,28 @@ class LoginViewController: UIViewController {
         
         passwordTextField.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
         passwordTextField.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        
+        loginButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        
+        signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        signUpButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    private func addTouchUpInside(to button: UIButton) {
+        button.addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
+    }
+    
+    @objc private func touchUpInside(sender: UIButton!) {
+        
+        switch sender {
+        case loginButton:
+            print("Tap Login Button") // TODO: It will be defined
+        case signUpButton:
+            print("Tap Sign Up Button") // TODO: It will be defined
+        default:
+            return
+        }
     }
 }
