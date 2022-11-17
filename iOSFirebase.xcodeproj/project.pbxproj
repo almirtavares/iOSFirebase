@@ -11,6 +11,8 @@
 		CC1DEF832924421100B19E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1DEF822924421100B19E45 /* AppDelegate.swift */; };
 		CC1DEF8C2924421200B19E45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC1DEF8B2924421200B19E45 /* Assets.xcassets */; };
 		CC1DEF8F2924421200B19E45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1DEF8D2924421200B19E45 /* LaunchScreen.storyboard */; };
+		CC5100782925BA9F001C3059 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5100772925BA9F001C3059 /* LoginView.swift */; };
+		CC51007B2925BF2E001C3059 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC51007A2925BF2E001C3059 /* CodeView.swift */; };
 		CCC3C27829244F0200B22EB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC3C27729244F0200B22EB5 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +24,8 @@
 		CC1DEF8B2924421200B19E45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC1DEF8E2924421200B19E45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC1DEF902924421200B19E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC5100772925BA9F001C3059 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CC51007A2925BF2E001C3059 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		CCC3C27729244F0200B22EB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E29D30679E8602F18C249AC8 /* Pods_iOSFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,10 +74,36 @@
 				CC1DEF822924421100B19E45 /* AppDelegate.swift */,
 				CC1DEF8B2924421200B19E45 /* Assets.xcassets */,
 				CC1DEF8D2924421200B19E45 /* LaunchScreen.storyboard */,
-				CCC3C27729244F0200B22EB5 /* LoginViewController.swift */,
 				CC1DEF902924421200B19E45 /* Info.plist */,
+				CC5100762925BA41001C3059 /* View */,
+				CC5100752925BA36001C3059 /* Controller */,
+				CC5100792925BF03001C3059 /* Shared */,
 			);
 			path = iOSFirebase;
+			sourceTree = "<group>";
+		};
+		CC5100752925BA36001C3059 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCC3C27729244F0200B22EB5 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC5100762925BA41001C3059 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC5100772925BA9F001C3059 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC5100792925BF03001C3059 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CC51007A2925BF2E001C3059 /* CodeView.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		CEAABB60C6AEFCF47C3258BE /* Pods */ = {
@@ -199,8 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC5100782925BA9F001C3059 /* LoginView.swift in Sources */,
 				CCC3C27829244F0200B22EB5 /* LoginViewController.swift in Sources */,
 				CC1DEF832924421100B19E45 /* AppDelegate.swift in Sources */,
+				CC51007B2925BF2E001C3059 /* CodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

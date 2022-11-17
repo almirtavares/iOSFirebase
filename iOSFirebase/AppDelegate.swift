@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let loginViewController = LoginViewController()
         let navigationController = UINavigationController(rootViewController: loginViewController)
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.navigationBar.isTranslucent = true
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationController

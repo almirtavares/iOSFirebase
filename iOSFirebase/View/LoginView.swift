@@ -1,13 +1,32 @@
 //
-//  LoginViewController.swift
+//  LoginView.swift
 //  iOSFirebase
 //
-//  Created by almir.tavares on 15/11/22.
+//  Created by almir.tavares on 16/11/22.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+protocol LoginViewDelegate: AnyObject {
+    func loginButtonTapped()
+    func signUpButtonTapped()
+}
+
+final class LoginView: UIView {
+
+    // MARK: Properties
+    weak var delegate: LoginViewDelegate?
+    
+    private let navigationBar: UINavigationBar = {
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        navigationBar.prefersLargeTitles = true
+        navigationBar.isTranslucent = true
+        let navigationItem = UINavigationItem(title: "Welcome")
+        navigationBar.setItems([navigationItem], animated: false)
+        
+        return navigationBar
+    }()
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -74,31 +93,52 @@ class LoginViewController: UIViewController {
         
         return button
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        setupNavigationBar()
+    
+    // MARK: Constructors
+    init(delegate: LoginViewDelegate) {
+        self.delegate = delegate
+        super.init(frame: .zero)
         setupUI()
-        addTouchUpInside(to: loginButton)
-        addTouchUpInside(to: signUpButton)
     }
     
-    private func setupNavigationBar() {
-        self.navigationItem.title = "Welcome"
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI() {
-        view.addSubview(stackView)
+    // MARK: Methods
+    @objc private func touchUpInside(sender: UIButton!) {
+        
+        switch sender {
+        case loginButton:
+            delegate?.loginButtonTapped()
+        case signUpButton:
+            delegate?.loginButtonTapped()
+        default:
+            break
+        }
+    }
+}
+
+extension LoginView: CodeView {
+
+    func setupComponents() {
+        addSubview(navigationBar)
+        addSubview(stackView)
         stackView.addArrangedSubview(nameTextField)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(loginButton)
-        view.addSubview(signUpButton)
-
-        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+        addSubview(signUpButton)
+    }
+    
+    func setupConstraints() {
+        navigationBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        navigationBar.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        navigationBar.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+        stackView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 24).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
         
         nameTextField.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
         nameTextField.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
@@ -112,24 +152,14 @@ class LoginViewController: UIViewController {
         loginButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
         loginButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
-        signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        signUpButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
+        signUpButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        signUpButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
         signUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    private func addTouchUpInside(to button: UIButton) {
-        button.addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
-    }
-    
-    @objc private func touchUpInside(sender: UIButton!) {
-        
-        switch sender {
-        case loginButton:
-            print("Tap Login Button") // TODO: It will be defined
-        case signUpButton:
-            print("Tap Sign Up Button") // TODO: It will be defined
-        default:
-            return
-        }
+    func setupConfigurations() {
+        backgroundColor = .white
+        loginButton.addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
     }
 }
