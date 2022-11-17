@@ -11,7 +11,6 @@
 		CC1DEF832924421100B19E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1DEF822924421100B19E45 /* AppDelegate.swift */; };
 		CC1DEF8C2924421200B19E45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC1DEF8B2924421200B19E45 /* Assets.xcassets */; };
 		CC1DEF8F2924421200B19E45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1DEF8D2924421200B19E45 /* LaunchScreen.storyboard */; };
-		CC1DEF972924446900B19E45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC1DEF962924446900B19E45 /* GoogleService-Info.plist */; };
 		CCC3C27829244F0200B22EB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC3C27729244F0200B22EB5 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +22,6 @@
 		CC1DEF8B2924421200B19E45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC1DEF8E2924421200B19E45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC1DEF902924421200B19E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC1DEF962924446900B19E45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CCC3C27729244F0200B22EB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E29D30679E8602F18C249AC8 /* Pods_iOSFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -74,7 +72,6 @@
 				CC1DEF8D2924421200B19E45 /* LaunchScreen.storyboard */,
 				CCC3C27729244F0200B22EB5 /* LoginViewController.swift */,
 				CC1DEF902924421200B19E45 /* Info.plist */,
-				CC1DEF962924446900B19E45 /* GoogleService-Info.plist */,
 			);
 			path = iOSFirebase;
 			sourceTree = "<group>";
@@ -149,7 +146,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC1DEF8F2924421200B19E45 /* LaunchScreen.storyboard in Resources */,
-				CC1DEF972924446900B19E45 /* GoogleService-Info.plist in Resources */,
 				CC1DEF8C2924421200B19E45 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
