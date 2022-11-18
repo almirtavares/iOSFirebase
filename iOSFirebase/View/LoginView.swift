@@ -17,17 +17,6 @@ final class LoginView: UIView {
     // MARK: Properties
     weak var delegate: LoginViewDelegate?
     
-    private let navigationBar: UINavigationBar = {
-        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
-        navigationBar.translatesAutoresizingMaskIntoConstraints = false
-        navigationBar.prefersLargeTitles = true
-        navigationBar.isTranslucent = true
-        let navigationItem = UINavigationItem(title: "Welcome")
-        navigationBar.setItems([navigationItem], animated: false)
-        
-        return navigationBar
-    }()
-    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +69,8 @@ final class LoginView: UIView {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
-        button.backgroundColor = .purple
+        button.backgroundColor = UIColor(displayP3Red: 0.5, green: 0.0, blue: 0.5, alpha: 1)
+        button.layer.cornerRadius = 4
         
         return button
     }()
@@ -89,7 +79,7 @@ final class LoginView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign Up", for: .normal)
-        button.setTitleColor(.purple, for: .normal)
+        button.setTitleColor(UIColor(displayP3Red: 0.5, green: 0.0, blue: 0.5, alpha: 1), for: .normal)
         
         return button
     }()
@@ -122,7 +112,6 @@ final class LoginView: UIView {
 extension LoginView: CodeView {
 
     func setupComponents() {
-        addSubview(navigationBar)
         addSubview(stackView)
         stackView.addArrangedSubview(nameTextField)
         stackView.addArrangedSubview(emailTextField)
@@ -132,11 +121,8 @@ extension LoginView: CodeView {
     }
     
     func setupConstraints() {
-        navigationBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        navigationBar.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        navigationBar.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        stackView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 24).isActive = true
+        stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
         stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
         
@@ -158,7 +144,7 @@ extension LoginView: CodeView {
     }
     
     func setupConfigurations() {
-        backgroundColor = .white
+        backgroundColor = UIColor(displayP3Red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1)
         loginButton.addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
     }
