@@ -66,7 +66,7 @@ final class LoginView: UIView {
     }()
     
     private let loginButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
         button.backgroundColor = UIColor(displayP3Red: 0.5, green: 0.0, blue: 0.5, alpha: 1)
@@ -116,7 +116,7 @@ extension LoginView: CodeView {
         stackView.addArrangedSubview(nameTextField)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(loginButton)
+        addSubview(loginButton)
         addSubview(signUpButton)
     }
     
@@ -135,12 +135,14 @@ extension LoginView: CodeView {
         passwordTextField.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
         passwordTextField.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
-        loginButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
-        loginButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -8).isActive = true
+        loginButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         
         signUpButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         signUpButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
-        signUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
     func setupConfigurations() {
